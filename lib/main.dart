@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new MyHomePage(title: 'Login Demo'),
     );
   }
 }
@@ -89,13 +89,28 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
+            Icon(
+              ima
+            )
+            TextField(
+              decoration: InputDecoration(hintText: "请输入用户名"),
             ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            TextField(
+              decoration: InputDecoration(hintText: "请输入密码"),
             ),
+            FlatButton(
+              onPressed: () {
+                setState(() {});
+              },
+              child: Text('登录'),
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              color: Colors.blue,
+              textColor: Colors.white,
+            ),
+            // new Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.display1,
+            // ),
           ],
         ),
       ),
