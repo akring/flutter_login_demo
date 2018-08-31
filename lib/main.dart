@@ -43,7 +43,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -52,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -90,45 +90,40 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 100.0,
-              height: 100.0,
-              child: Icon(
-                icon:
-              ),
-            ),
-            Container(
                 width: 240.0,
                 height: 50.0,
                 child: new TextField(
+                  controller: usernameController,
                   decoration: InputDecoration(hintText: "请输入用户名"),
                 )),
             Container(
                 width: 240.0,
                 height: 50.0,
                 child: new TextField(
+                  controller: passwordController,
                   decoration: InputDecoration(hintText: "请输入密码"),
                 )),
             FlatButton(
               onPressed: () {
-                setState(() {});
+                return showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Text(
+                        usernameController.text+"登录成功"
+                      ),
+                    );
+                  },
+                );
               },
               child: Text('登录'),
               padding: EdgeInsets.only(left: 10.0, right: 10.0),
               color: Colors.blue,
               textColor: Colors.white,
             ),
-            // new Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.display1,
-            // ),
           ],
         ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
