@@ -89,15 +89,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
-              ima
-            )
-            TextField(
-              decoration: InputDecoration(hintText: "请输入用户名"),
+            Container(
+              width: 100.0,
+              height: 100.0,
+              child: Icon(
+                icon:
+              ),
             ),
-            TextField(
-              decoration: InputDecoration(hintText: "请输入密码"),
-            ),
+            Container(
+                width: 240.0,
+                height: 50.0,
+                child: new TextField(
+                  decoration: InputDecoration(hintText: "请输入用户名"),
+                )),
+            Container(
+                width: 240.0,
+                height: 50.0,
+                child: new TextField(
+                  decoration: InputDecoration(hintText: "请输入密码"),
+                )),
             FlatButton(
               onPressed: () {
                 setState(() {});
